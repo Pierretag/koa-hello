@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 
 class museumAPI {
 
@@ -16,9 +17,17 @@ class museumAPI {
         
         if(! limit) limit = 10;
         const url = this.host+this.path+"search?q="+name+"&limit="+limit;
-        const init = {"method" : "GET"};
+        const init = {"method" : "GET","mode":"cors"};
         console.log(`url is ${url}`)
-        return  fetch(url,init).then(res => res.json())
+        
+        return  fetch(url).then(res => {
+            if (res.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                res.status);
+                return;
+              }
+            return res.json();
+        })
         
     }
 
