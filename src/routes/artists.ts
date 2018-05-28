@@ -1,10 +1,18 @@
 import * as Router from "koa-router"
+import {museumClient} from "../services/musuemService"
+
+
 const router = new Router();
 
 
-router.get("/hello/", async (ctx) => {
-    ctx.body = "hello World";
+router.get("/search/:name", async (ctx) => {
+
+    console.log(`name is ${ctx.params.name}`)
+
+    await museumClient.searchByName(ctx.params.name).then(json => ctx.body = json).catch(err => ctx.body = err);
+    
+
 })
 
 
-export const artists = router.routes();
+export const artpieces = router.routes();

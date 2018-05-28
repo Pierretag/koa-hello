@@ -1,12 +1,12 @@
 import * as Router from "koa-router"
-import { artists } from "./artists"
+import { artpieces } from "./artists"
 
 const router = new Router();
 
 const version ="/v1";
 
 router.prefix("/api"+version);
-router.use(artists);
+router.use(artpieces);
 
 
 
