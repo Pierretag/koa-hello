@@ -1,6 +1,6 @@
 import * as Koa from "koa";
-import {routes } from "./routes/index"
-const app = new Koa();
+import {routes } from "./app/routes/index"
+const app = module.exports = new Koa();
 
 app.use(async (ctx, next) => {
     const start = Date.now();
@@ -21,5 +21,5 @@ app.use(async (ctx, next) => {
   // logger
   app.use(routes);
 
-app.listen(3000);
+if (!module.parent) app.listen(3000);
 console.log("server is running on port 3000");

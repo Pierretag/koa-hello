@@ -17,6 +17,9 @@ Le projet suivant a pour but de consommer l'API offerte par le Victoria and Albe
     2. par date etc
     3. par géographie
 3. Heatmap avec les différentes oeuvres
-
+4. Ajouter une authentification user => database local 
+    1. Token exange api 
+5. Start of Microservice => deux docker 
+6. Créer un serveur front. 
 
 

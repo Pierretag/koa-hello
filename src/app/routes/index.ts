@@ -5,7 +5,15 @@ const router = new Router();
 
 const version ="/v1";
 
+
 router.prefix("/api"+version);
+
+
+// Hello World Page
+router.get('/', async (ctx) => {
+    ctx.body = "Hello world!";
+})
+
 router.use(artpieces);
 
 
